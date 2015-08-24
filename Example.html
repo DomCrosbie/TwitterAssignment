@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		example
+	</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>Quantity</td>
+				<td>SalePrice</td>
+				<td>Name</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+				$connect = mysql_connect("danu6.it.nuigalway.ie","mydb1987e", "mydb1987e");
+				if (!$connect) {
+					die(mysql_error());
+				}
+				
+				mysql_select_db("mydb1987");
+				$results = mysql_query("SELECT * FROM communistSupplies WHERE Quantity = 3");
+				while($row = mysql_fetch_array($results)) {
+			?>	
+				<tr>
+                    <td><?php echo $row['Quantity']?></td>
+                    <td><?php echo $row['SalePrice']?></td>
+					<td><?php echo $row['Name']?></td>
+                    <td><?php echo $row['Description']?></td>
+                </tr>
+			<?php
+				}
+			?>
+		</tbody>
+	</table>
+</body>
+</html>

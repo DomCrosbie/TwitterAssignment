@@ -1,0 +1,75 @@
+/* Ciaran Foley 10712019 CT870 http://danu6.it.nuigalway.ie/islandsports */
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: black;
+  font-family:Tahoma, Arial, Helvetica, Sans-serif;
+  font-size:20px;
+}
+
+#header{
+   
+position:relative;
+   background:white;
+   width:100%;
+   padding:0;
+   height 250px;
+  border-style: solid;
+  border-width: 4px;
+  border-color:white;
+  border-bottom-color: blue;
+
+
+   
+}
+ 
+
+#navigation {width: 960px;text-align: center;background: black; width: 100%; margin: 0 auto;  top: 0px; }
+#ul { margin: 0; padding: 0; list-style-type: none; }
+#navigation ul li { display: inline; margin-right: 3px; }
+#navigation ul li a { background: #fbe49b; text-decoration: none; padding: 9px 10px 0px 10px; text-transform: uppercase; border-left: 1px solid #151500; border-top: 1px solid #000; border-right: 1px solid #151500; background-color: #FFF; }
+#navigation ul li.current_page_item a, #navigation ul li a:hover  { color: #F00; border-left: 1px solid #fff; border-top: 1px solid #fff; border-right: 1px solid #fff; background: url('nav.png') repeat-x left top; }
+
+#leftcol {
+  background: white;
+  float: left;
+  width: 33%;
+  height: 600px;
+  color: #00CCFF;
+ }
+
+#rightcol {
+  background: #white;
+  float: right;
+  width: 33%;
+  height: 600px;
+  color: blue;
+   
+
+  
+}
+
+#content {
+  background:white;
+  float: left;
+  width: 33%;
+  height: 600px;
+  color: blue;
+   
+
+  
+}
+#indent1 { text-indent: 10px; }
+ 
+#footer {
+  background: white;
+  clear: both;
+  min-height: 60px;
+  width: 100%;
+  font-family:Tahoma, Arial, Helvetica, Sans-serif;
+  color: #00CCFF;
+  text-align:center;
+ }
+
+#ul { margin: 0; padding: 0; list-style-type: none; }

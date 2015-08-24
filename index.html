@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title> Home </title>
+<link href="column.css" rel="stylesheet" type="text/css">
+<style>
+.btn { font-family: Helvetica; color: #ffffff;background: #3498db; font-size: 14px;}
+.head{background-color: white; color: blue;text-align: center; padding: 1px; border-style: solid;border-width: 4px;border-color:white;border-bottom-color: blue;} 
+h1{font-size: 70px;
+font-family:Helvetica;} 
+h3{color: blue; text-align: center;
+font-family:Helvetica;} 
+.main{background-color: white; width: 100%;}
+.middle{background-color: white; color: blue; text-align: left; width: 100%; margin-top: 3px;}
+.piece{border-radius: 2px;padding: 2% 0 0 0; font-size: 18px; float: left; width: 100%; font-family:Helvetica;}
+.table{border: none;}
+.sidebar1{padding: 5% 0 0 0;}
+a:link {color: #00CCFF;}
+/* visited link */a:visited {color: #00CCFF;}
+/* mouse over link */a:hover {color: blue;}
+#footer {background: white;clear: both;min-height: 40px;width: 100%;font-family:Helvetica, Arial, Helvetica, Sans-serif;color: #00CCFF;text-align:center;
+  	border-style: solid;border-width: 4px;border-color:white;border-top-color: blue;}
+	</style>
+</head>
+
+<body class="main">
+	<header class="head">
+		<img src="Images/twitterpeeklogo2.gif"alt="Tweet" align ="center"  style="width:578px;height:203px">
+	</header>
+	
+<div id="content"align="center"><br> 
+<table style="width:304px">
+	<tr>	<td align="center">
+		Most Influential Tweeter
+		</td>
+   		</tr>
+</table>
+<br>
+
+
+<img src="Images/Person.png"alt="Popular"  align="center" style="width:304px;height:228px">
+<br>
+<form  align = "center" method="post" action="finalsearch.php"  id="searchform" method="get"> 
+	      <input  type="text" name="idnumber" placeholder="Enter text i.e: Dublin" > 
+	      <input  type="submit" name="submit" class="btn" value="Search User"></form> 
+<br>
+
+<table style="width:304px">
+   <tr>
+    <td align="center">
+	Your search term will be compared with tweets from the most influential users  <br>
+	</td>
+   </tr>
+
+</table>			
+
+
+
+</div>
+
+
+
+<div id="leftcol"align="center"><br>
+<table style="width:304px">
+	<tr>	<td align="center">
+		Top Tweet
+		</td>
+   		</tr>
+</table>
+<br>
+<img src="Images/Tweet.jpg"alt="Tweet" align ="center"  style="width:304px;height:228px">
+<br>
+			<form  align = "center"method="post" action="finalsearch2.php"  id="searchform" method="get"> 
+	      <input  type="text" name="idnumber2" placeholder="Enter text i.e: Roy Keane"> 
+	      <input  type="submit" name="submit" class="btn" value="Search Tweets"> 	    </form> <br>
+
+<table style="width:304px">
+   <tr>
+    <td align="center">
+	Your search term will be compared with the most important tweets <br>
+  </td>
+   </tr>
+
+</table>
+
+
+
+</div>
+
+
+<div id="rightcol"align="center" ><br>
+<table style="width:304px">
+	<tr>	<td align="center">
+		Top Tweet with Hashtag
+		</td>
+   		</tr>
+</table>
+<br>
+<img src="Images/hashtag.png"alt="Hashtag" align= "center"  style="width:304px;height:228px">
+<br>
+						<form align = "center" method="post"  action="finalsearch3.php"  id="searchform" method="get"> 
+	     	 <input  type="text" name="idnumber3" placeholder="Enter Hashtag i.e: #coybig"> 
+	      	 <input  type="submit" name="submit" class="btn" value="Search Hashtags"> 	    </form> <br>
+
+<table style="width:304px">
+   <tr>
+    <td align="center">
+	Your #hashtag will be compared with the most important #hashtags <br>
+ </td>
+   </tr>
+
+</table>
+
+</div>	
+<?php 
+	if(isset($_POST['submit'])){ 
+	 if(isset($_GET['go'])){ 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['idnumber'])){
+	  $idnumber=$_POST['raw_json']; 
+	  $db=mysql_connect  ("danu6.it.nuigalway.ie", "mydb1863u",  "mydb1863u", "mydb1863") or die ('I cannot connect to the database  because: ' . mysql_error()); 
+	  $mydb=mysql_select_db("mydb1863"); 
+	  $sql="SELECT id FROM twitter_statuses WHERE raw_json LIKE '%" . $idnumber .  "%'";
+	$result=mysql_query($sql); 	
+	$row = mysql_fetch($result);
+	$idnumber = $row['id']; 
+}
+	$_POST[$title];
+		}
+		}
+	
+	if(isset($_POST['submit2'])){ 
+	 if(isset($_GET['go'])){ 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['idnumber2'])){
+	  $idnumber=$_POST['raw_json']; 
+	  $db=mysql_connect  ("danu6.it.nuigalway.ie", "mydb1863u",  "mydb1863u", "mydb1863") or die ('I cannot connect to the database  because: ' . mysql_error()); 
+	  $mydb=mysql_select_db("mydb1863"); 
+	  }
+	  }
+	  }
+ 
+	 ?> 
+
+<div id="footer" align = "center">
+
+	<a href="aboutTP.html"style="text-decoration: none">About Twitter Peek</a><br>
+        <A href="references.html"style="text-decoration: none">References</A>
+	
+    
+
+	<p> Copyright Twitter Peek © 2014</p>
+
+</div><!--footer-->
+
+
+	
+</body>
+</html>

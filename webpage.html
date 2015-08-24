@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title> Home </title>
+	<link href="column.css" rel="stylesheet" type="text/css">
+
+	<style> 
+	.head{background-color: white; color: blue;text-align: center; padding: 1px; border-style: solid;
+  border-width: 4px;
+  border-color:white;
+  border-bottom-color: blue;
+font-family:Helvetica
+
+ } 
+.btn { font-family: Helvetica; color: #ffffff;background: #3498db; font-size: 14px;}
+
+		h1{font-size: 70px;} 
+		h3{color: blue; text-align: center;
+		font-family:Helvetica} 
+		.main{background-color: white; width: 100%;}
+	.middle{background-color: white; color: blue; text-align: left; width: 100%; margin-top: 3px;font-family:Arial}
+	.piece{border-radius: 2px;padding: 2% 0 0 0; font-size: 18px; float: left; width: 100%;font-family:Arial}
+	.table{border: none;}
+	.sidebar1{padding: 5% 0 0 0;}
+a:link {
+    	color: #00CCFF;
+	}
+
+	/* visited link */
+	a:visited {
+   	color: #00CCFF;
+	}
+
+	/* mouse over link */
+	a:hover {
+    	color: blue;
+}
+
+#footer {background: white;clear: both;min-height: 40px;width: 100%;font-family:Helvetica, Arial, Helvetica, Sans-serif;color: #00CCFF;text-align:center;
+  	border-style: solid;border-width: 4px;border-color:white;border-top-color: blue;}
+	</style>
+</head>
+
+<body class="main">
+	<header class="head">
+		<img src="Images/twitterpeeklogo2.gif"alt="Tweet" align ="center"  style="width:578px;height:203px">
+	</header>
+	
+<div id="content"align="center"><br> 
+<table style="width:304px">
+	<tr>	<td align="center">
+		Most Influential Tweeter
+		</td>
+   		</tr>
+</table>
+<br>
+
+
+<img src="Images/Person.png"alt="Popular"  align="center" style="width:304px;height:228px">
+<br>
+<form  align = "center" method="post" action="finalsearch.php"  id="searchform" method="get"> 
+	      <input  type="text" name="idnumber" placeholder="Enter text i.e: Ireland" > 
+	      <button input  type="submit"  class="btn" name="submit" value="Search Popularity"> Search User </button></form> 
+<br>
+
+<table style="width:304px">
+   <tr>
+    <td>
+	Enter text in search box to find the most influental user.
+	The formula takes into consideration the  friends and followers a person has and how many lists the user appears in </td>
+   </tr>
+
+</table>			
+
+
+
+</div>
+
+
+
+<div id="leftcol"align="center"><br>
+<table style="width:304px">
+	<tr>	<td align="center">
+		Top Tweet
+		</td>
+   		</tr>
+</table>
+<br>
+<img src="Images/Tweet.jpg"alt="Tweet" align ="center"  style="width:304px;height:228px">
+<br>
+			<form  align = "center"method="post" action="finalsearch2.php"  id="searchform2" method="get"> 
+	      <input  type="text" name="idnumber2" placeholder="Enter text i.e: Roy Keane"> 
+	      <input  type="submit" class="btn" name="submit" value="Search Tweets"> 	    </form> <br>
+
+<table align = "center"style="width:304px">
+   <tr>
+    <td>
+	Enter text in search box to find the most popular tweet in relation to that subject. The formula to find the most popular tweet uses the tweet's retweet count and favourite count.  </td>
+   </tr>
+
+</table>
+
+
+
+</div>
+
+
+<div id="rightcol"align="center" ><br>
+<table style="width:304px">
+	<tr>	<td align="center">
+		Top Tweet with Hashtag
+		</td>
+   		</tr>
+</table>
+<br>
+<img src="Images/hashtag.png"alt="Hashtag" align= "center"  style="width:304px;height:228px">
+<br>
+		<form align = "center" method="post" action="finalsearch3.php" id="searchform3" > 
+	     	 <input type="text" name="idnumber3" placeholder="Enter Hashtag i.e: #coybig"> 
+	      	 <input type="submit" class="btn"  name="submit" value="Search Hashtag">    </form> <br>
+
+<table style="width:304px">
+   <tr>
+    <td>
+	Submit a hashtag in search bar to find the most popular tweet containing that hashtag.
+	 The formula takes into consideration the retweet count and favourite count of a tweet and will output the top ranked tweets containing the hashtag  </td>
+   </tr>
+
+</table>
+
+</div>	
+<?php 
+	if(isset($_POST['submit'])){ 
+	 if(isset($_GET['go'])){ 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['idnumber'])){
+	  $idnumber=$_POST['raw_json']; 
+	  $db=mysql_connect  ("danu6.it.nuigalway.ie", "mydb1863u",  "mydb1863u", "mydb1863") or die ('I cannot connect to the database  because: ' . mysql_error()); 
+	  $mydb=mysql_select_db("mydb1863"); 
+	  $sql="SELECT id FROM twitter_statuses WHERE raw_json LIKE '%" . $idnumber .  "%'";
+	$result=mysql_query($sql); 	
+	$row = mysql_fetch($result);
+	$idnumber = $row['id']; 
+}
+	$_POST[$title];
+		}
+		}
+	
+	if(isset($_POST['submit2'])){ 
+	 if(isset($_GET['go'])){ 
+	  if(preg_match("/^[  a-zA-Z]+/", $_POST['idnumber2'])){
+	  $idnumber=$_POST['raw_json']; 
+	  $db=mysql_connect  ("danu6.it.nuigalway.ie", "mydb1863u",  "mydb1863u", "mydb1863") or die ('I cannot connect to the database  because: ' . mysql_error()); 
+	  $mydb=mysql_select_db("mydb1863"); 
+	  }
+	  }
+	  }
+ 
+	 ?> 
+
+<div id="footer" align = "center">
+
+	<a href="aboutTP.html"style="text-decoration: none">About Twitter Peek</a><br>
+        <A href="references.html"style="text-decoration: none">References</A>
+	
+    
+
+	<p> Copyright Twitter Peek © 2014</p>
+
+</div><!--footer-->
+
+
+	
+</body>
+</html>

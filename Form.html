@@ -1,0 +1,36 @@
+
+<html>
+<head>
+<script>
+	 
+function validateform(){  
+var name=document.myform.name.value;  
+var id=document.myform.id.value;  
+var course=document.myform.course.value;  
+
+ if (name==null || name==""){  
+ alert("Name can't be blank");  
+ return false;  
+}else if (id==null || id==""){  
+ alert("ID can't be blank");  
+ return false; 
+}
+ else if (course==null || course==""){  
+ alert("Course can't be blank");  
+ return false;  
+ }
+ else{
+ alert("Success")
+ }
+
+</script>
+</head>
+<body>
+<form name = "myForm" onsubmit="return validateForm()" method="post">
+	Name      :       <input type = "text" name = "name" value = ""><br>
+	Student ID: <input type = "text" name = "id" value = ""><br>
+	Course    :     <input type = "text" name = "course" value = ""><br>
+	<input type = "button" name = "Submit" value = "Validate!" >
+</form>
+</body>
+</html>
